@@ -12,11 +12,12 @@ export default function Chat() {
     setInput('');
 
     try {
-      const response = await fetch('https://your-bridge-domain.com/chat', {
+      const response = await fetch('https://bridge-y5on.onrender.com/chat', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ message: input })
-      });
+        });
+
 
       const data = await response.json();
       setMessages([...newMessages, { role: 'assistant', content: data.reply }]);
