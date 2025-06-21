@@ -12,7 +12,7 @@ export default function Chat() {
     setInput('');
 
     try {
-      const response = await fetch('https://bridge-y5on.onrender.com/chat', {
+      const response = await fetch('https://bridge-y5on.onrender.com/bridge', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ message: input })
