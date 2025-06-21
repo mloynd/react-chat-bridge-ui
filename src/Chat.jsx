@@ -15,12 +15,11 @@ export default function Chat() {
       const response = await fetch('https://bridge-y5on.onrender.com/bridge', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ message: input })
-        });
-
+        body: JSON.stringify({ input: input })  // ✅ key fix here
+      });
 
       const data = await response.json();
-      setMessages([...newMessages, { role: 'assistant', content: data.reply }]);
+      setMessages([...newMessages, { role: 'assistant', content: data.reply || JSON.stringify(data) }]);
     } catch (error) {
       setMessages([...newMessages, { role: 'assistant', content: 'Error connecting to bridge.' }]);
     }
